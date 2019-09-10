@@ -23,8 +23,8 @@ head, header {
 }
 
 #product-image {
-	width: 85%;
-	height: 85%;
+	width: 75%;
+	height: 75%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -35,7 +35,7 @@ head, header {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	width: 370px;
+	width: 320px;
 	background-color: #48dee0;
 	border: 2px solid #346eeb;
 }
@@ -63,17 +63,8 @@ head, header {
 }
 
 .related-product-image {
+	position: relative;
 	padding: 10px 0px;
-}
-
-.overlay {
-	position: absolute;
-	margin: auto;
-	left: 0;
-	top: 0;
-	text-align: center;
-	background-color: rgba(0,0,0,0.5);
-	opacity: 0.8;
 }
 
 .related-product-image .text {
@@ -85,7 +76,7 @@ head, header {
 	right: 0;
 	color: black;
 	font-weight: bold;
-	display: none;
+	visibility: hidden;
 }
 
 .related-product-image img {
@@ -97,20 +88,15 @@ head, header {
 	height: 60%;
 }
 
-/*.related-product-image:hover {
-	background-color: rgba(0,0,0,0.5);
-}*/
-
 .related-product-image:hover .text {
-	display: block;
+	visibility: visible;
 	top: 50%;
-	background-color: rgba(0,0,0,0.5);
 }
 
-/*.related-product-image:hover .text {
+.related-product-image:hover img {
 	cursor: pointer;
-	background-color: rgba(0,0,0,0.5);
-}*/
+	opacity: 0.5;
+}
 
 @media (min-width: 768px) {
 	.column {
