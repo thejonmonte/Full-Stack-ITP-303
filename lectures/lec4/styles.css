@@ -1,0 +1,118 @@
+/* Defined and loaded font file */
+@font-face { 
+	/* To import a custom font, use @font-face */
+	font-family: "Great Fighter Demo";
+	src: url("Fighter.ttf");
+}
+html,body {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #4d7f96;
+	font-family: 'Montserrat', sans-serif;
+}
+#header {
+	background-image: url('http://303.itpwebdev.com/~ta303/assets/the-office/theoffice.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 110px 0px;
+}
+#header h1 {
+	font-family: "Great Fighter Demo", Arial, sans-serif;
+	margin: 0;
+	text-align: center;
+	color: white;
+	font-size: 50px;
+	text-shadow: 4px 3px 0 #7A7A7A;
+}
+#main {
+	/*width: 1000px;*/
+	width: 90%; /* 100% of the direct parent. In this case, the parent is the body */
+	max-width: 1000px; /* If it goes over 1000px, it'll stop growing and ignore the percentage */
+	margin: 0 auto;
+	background-color: #d9f2fd;
+}
+#main:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+#sidebar {
+	float: left;
+	/*width: 180px;*/
+	width: 20%;
+	/* For padding: the first value 0px is for top and bottom, 10px is for left and right*/
+/*	padding: 0px 10px;*/
+	padding-left: 10px;
+	padding-right: 10px;
+	/*Magical Property that solves padding and width issues */
+	box-sizing: border-box;
+	text-align: center;
+	background-color: #d9f2fd;
+}
+#sidebar img {
+	width: 100%;
+}
+#content {
+	float: left;
+	/*width: 780px;*/
+	width: 80%;
+	padding: 0px 10px;
+	box-sizing: border-box;
+	background-color: white;
+}
+#content .figure {
+	text-align: center;
+}
+#footer {
+	background-color: #263f4b;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+}
+/*Media query*/
+/* Max size for an iPad is 768px*/
+/* Screen sizes 0 - 768 px */
+@media (max-width: 768px) {
+	#header h1 {
+		color: red;
+	}
+	#main {
+		width: 100%;
+	}
+	#sidebar {
+		width: 100%;
+	}
+	#sidebar .character {
+		width: 24%;
+		float: left;
+		margin-left: 0.5%;
+		margin-right: 0.5%;
+
+		/* With margins, you can't do box-sizing */
+	}
+	#content {
+		width: 100%;
+	}
+}
+
+/* Screen sizes 0 - 576 px */
+@media (max-width: 576px) {
+	#header h1 {
+		color: green;
+	}
+	#sidebar .character {
+		width: 48%;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+	#content img {
+		/*display: none;*/
+		visibility: hidden;
+	}
+	#content:hover img {
+		visibility: visible;
+	}
+}
