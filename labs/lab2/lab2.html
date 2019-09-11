@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 2</title>
+	<style>
+
+		#container {
+			display: flex;
+			align-items: flex-start;
+			align-content: flex-start;
+			background-color: #1DF7F7;
+			flex-wrap: wrap;
+		}
+
+		.flexing {
+			text-align: center;
+			color: black;
+			text-decoration: none;
+			width: 24%;
+			padding: 20px 0.5%;
+		}
+
+		.flexing:hover {
+			opacity: 0.8;
+			text-decoration: underline;
+			background-color: blue;
+		}
+
+		@media(max-width: 991px) {
+			.flexing {
+				width: 49%;
+				padding: 20px 0.5%;
+			}
+		}
+
+		@media(max-width: 767px) {
+			.flexing {
+				width: 99%;
+				padding: 20px 0.5%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<a href=# class="flexing">Home</a>
+		<a href=# class="flexing">About</a>
+		<a href=# class="flexing">Team</a>
+		<a href=# class="flexing">Contact</a>
+	</div>
+</body>
+</html>
