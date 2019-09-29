@@ -25,9 +25,6 @@ function displayResults(res) {
 	// Convert JSON into JS objects
 	res = JSON.parse(res);
 	console.log(res);
-
-	//for (let i = 0; i < res.results.length)
-
 	console.log(res.results[0].overview);
 	document.querySelector("#num-results").innerHTML = res.results.length;
 	document.querySelector("#total-results").innerHTML = res.total_results;
@@ -80,62 +77,6 @@ function displayResults(res) {
 		console.log(res.results.length);
 		console.log(res.total_results);
 	}
-
-	// // Create a bunch of HTML elements so we can show the results on the browser in a nicely formatted way
-	// let tbodyElement = document.querySelector("tbody");
-
-	// while(tbodyElement.hasChildNodes()) {
-	// 	tbodyElement.removeChild(tbodyElement.lastChild);
-	// }
-
-	// // Update the result count
-	// document.querySelector("#num-results").innerHTML = resultObject.resultCount;
-
-	// // Run through the results and create a <tr> element for each result
-	// for (let i = 0; i < resultObject.results.length; i++) {
-	// 	let trElement = document.createElement("tr");
-
-	// 	let cellCover = document.createElement("td");
-	// 	let cellArtist = document.createElement("td");
-	// 	let cellTrack = document.createElement("td");
-	// 	let cellAlbum = document.createElement("td");
-	// 	let cellPreview = document.createElement("td");
-
-	// 	// Create <img> tag for cover image
-	// 	let imgElement = document.createElement("img");
-	// 	imgElement.src = resultObject.results[i].artworkUrl100;
-
-	// 	// Append the <img> tag to its <td> tag
-	// 	cellCover.appendChild(imgElement);
-
-	// 	console.log(cellCover);
-
-	// 	cellArtist.innerHTML = resultObject.results[i].artistName;
-	// 	cellTrack.innerHTML = resultObject.results[i].trackName;
-	// 	cellAlbum.innerHTML = resultObject.results[i].collectionName;
-
-	// 	// Create <audio> tag for preview
-	// 	let audioElement = document.createElement("audio");
-	// 	audioElement.src = resultObject.results[i].previewUrl;
-	// 	audioElement.controls = true;
-	// 	// Controls: allow you to turn on and turn off the sound
-
-	// 	// Append the <audio> tag to its <td> tag
-	// 	cellPreview.appendChild(audioElement);
-
-	// 	// Append <td> tags to the <tr> tag
-	// 	trElement.appendChild(cellCover);
-	// 	trElement.appendChild(cellArtist);
-	// 	trElement.appendChild(cellTrack);
-	// 	trElement.appendChild(cellAlbum);
-	// 	trElement.appendChild(cellPreview);
-
-	// 	console.log(trElement);
-
-	// 	// Append the tr tag to the tbody
-	// 	tbodyElement.appendChild(trElement);
-	// }
-
 }
 
 window.onload = function() {
