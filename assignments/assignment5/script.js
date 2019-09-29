@@ -37,8 +37,12 @@ function displayResults(res) {
 		outerDiv.classList.add("col-lg-3", "col-md-4", "col-sm-6", "col-6", "center");
 		let img = document.createElement("img");
 
-		//testImage(res.results[i].poster_path, img);
-		img.src = "https://image.tmdb.org/t/p/w500/" + res.results[i].poster_path;
+		if (res.results[i].poster_path == null) {
+			img.src = "images/NoImage.png";
+		}
+		else {
+			img.src = "https://image.tmdb.org/t/p/w500/" + res.results[i].poster_path;
+		}
 		img.classList.add("resize");
 		
 		let overlayDiv = document.createElement("div");
