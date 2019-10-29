@@ -95,8 +95,39 @@
 		</div>
 	</div>
 
-	<script>
-	</script>
+<script>
+document.querySelector("#simple-form").onsubmit = function(event) {
+	// Prevent the form from being submitted
+	event.preventDefault();
+	// Get what the user typed in
+	let userInput = document.querySelector("#input").value.trim();
+	// Validate that user has entered some text
+	if( userInput.length > 0 ) {
+		// Create a <p> tag dynamically
+		let pElement = document.createElement("p");
+		// Add whatever user typed into the <p> tag
+		pElement.innerHTML = userInput;
+		pElement.classList.add("red");
+		console.log(pElement);
+		// Display the <p> tag by appending it to an existing tag -- <div id="paragraphs">
+		let paragraphs = document.querySelector("#paragraphs");
+		paragraphs.appendChild(pElement);
+		// Clear what the user typed in the input
+		document.querySelector("#input").value = "";
+	}
+}
+document.querySelector("#btn-delete").onclick = function() {
+	let paragraphs = document.querySelector("#paragraphs");
+	// I can remove a child node by index
+	// paragraphs.removeChild(paragraphs.children[0]);
+	// Remove ALL the children
+	// paragraphs.hasChildNodes() - returns true if paragraphs has children, false if it does not
+	while( paragraphs.hasChildNodes() ) {
+		paragraphs.removeChild(paragraphs.lastChild);
+	}
+}
+</script>
 
 </body>
 </html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Short Ex 1</title>
+    <script
+  src="http://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<img src="http://www.gstatic.com/tv/thumb/tvbanners/15679955/p15679955_b_v8_ac.jpg"></img>
+	<img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/22/10/bojack-horseman.jpg?w968h681"></img>
+	<img src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555307737/shape/mentalfloss/bojackhed.png"></img>
+	<button id="button">Click Me!</button>
+
+	<script type="text/javascript">
+		function isUpperCase(str) {
+			for (i = 0; i < str.length; i++) {
+				if (str[i] != str[i].toUpperCase()) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		$("#button").on('click', function() {
+			let str = "HeLLO";
+			console.log(isUpperCase(str));
+		})
+
+		$("img").on('click', function() {
+			console.log($(this).attr("src"));
+		})
+
+
+	</script>
+	
+</body>
+</html>
