@@ -24,7 +24,7 @@
 
 	<div class="container">
 
-		<form action="submit.php" method="GET" class="mt-3">
+		<form action="submit.php" method="POST" class="mt-3">
 
 			<div class="form-group row">
 				<label for="name-id" class="col-sm-2 col-form-label text-sm-right">Name:</label>
@@ -63,19 +63,19 @@
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
 						<label class="form-check-label">
-							<input type="checkbox" name="subscribe" class="form-check-input" value="newsletters">
+							<input type="checkbox" name="subscribe[]" class="form-check-input" value="newsletters">
 							Newsletters
 						</label>
 					</div> <!-- .form-check -->
 					<div class="form-check form-check-inline">
 						<label class="form-check-label ml-2">
-							<input type="checkbox" name="subscribe" class="form-check-input" value="events">
+							<input type="checkbox" name="subscribe[]" class="form-check-input" value="events">
 							Events
 						</label>
 					</div> <!-- .form-check -->
 					<div class="form-check form-check-inline">
 						<label class="form-check-label ml-2">
-							<input type="checkbox" name="subscribe" class="form-check-input" value="marketing">
+							<input type="checkbox" name="subscribe[]" class="form-check-input" value="marketing">
 							Marketing
 						</label>
 					</div> <!-- .form-check -->
