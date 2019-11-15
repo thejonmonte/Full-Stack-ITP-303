@@ -1,3 +1,29 @@
+<?php
+	require 'config/config';
+	$isDeleted = false;
+	if ( !isset($_GET['dvd_title_id']) || empty($_GET['dvd_title_id']) 
+			|| !isset($_GET['dvd_title']) || empty($_GET['dvd_title']) ) {
+		$error = "Invalid DVD.";
+	}
+	else {
+		$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		if ( $mysqli->connect_errno ) {
+			echo $mysqli->connect_error;
+			exit();
+		}
+		$sql = "DELETE FROM dvd_titles WHERE dvd_title_id = " . $_GET["dvd_title_id"] . ";";
+		$results = $mysqli->query($sql);
+		if(!$results) {
+			echo $mysqli->error;
+			exit();
+		}
+		if ($mysqli->affected_rows == 1) {
+			$isDeleted = true;
+		}
+		$mysqli->close();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +48,15 @@
 		<div class="row mt-4">
 			<div class="col-12">
 
-				<div class="text-danger">
-					Display Error Messages Here.
-				</div>
+				<?php if ( isset($error) && !empty($error) ) : ?>
+					<div class="text-danger">
+						<?php echo $error; ?>
+					</div>
+				<?php endif; ?>
 
-				<div class="text-success"><span class="font-italic">Title</span> was successfully deleted.</div>
+				<?php if ( $isDeleted ) :?>
+					<div class="text-success"><span class="font-italic"><?php echo $_GET['dvd_title']; ?></span> was successfully deleted.</div>
+				<?php endif; ?>
 
 			</div> <!-- .col -->
 		</div> <!-- .row -->

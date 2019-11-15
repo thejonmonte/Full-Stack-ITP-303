@@ -21,11 +21,12 @@
 	$mysqli->set_charset('utf8');
 
 	// Step 2: Generate and submit SQL query
-	$sql = "SELECT dvd_titles.title, dvd_titles.release_date, genres.genre, ratings.rating
+
+	$sql = "SELECT dvd_titles.dvd_title_id, dvd_titles.title, dvd_titles.release_date, genres.genre, ratings.rating 
 		FROM dvd_titles
-			JOIN genres
+			LEFT JOIN genres
 				ON genres.genre_id = dvd_titles.genre_id
-			JOIN ratings
+			LEFT JOIN ratings
 				ON ratings.rating_id = dvd_titles.rating_id
 		WHERE 1 = 1";
 		// 1 = 1 used as a placeholder: if user inputs things, it's easier to append to this WHERE clause instead
@@ -95,6 +96,7 @@
 </head>
 <body>
 	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php">Home</a></li>
 		<li class="breadcrumb-item"><a href="search_form.php">Search</a></li>
 		<li class="breadcrumb-item active">Results</li>
 	</ol>
@@ -131,12 +133,12 @@
 
 							<tr>
 								<td>
-								<!-- Append track id and name to the end of this link -->
-								<a href="delete.php?track_id=<?php echo $row['track_id']?>&track_name=<?php echo $row['track']?>" class="btn btn-outline-danger delete-btn">
-									Delete
-								</a>
-							</td>
-								<td> <?php echo $row["title"] ?> </td>
+									<!-- Append dvd title id and dvd title name to the end of this link -->
+									<a href="delete.php?dvd_title_id=<?php echo $row['dvd_title_id']?>&dvd_title=<?php echo $row['title']?>" class="btn btn-outline-danger delete-btn">
+										Delete
+									</a>
+								</td>
+								<td> <a href="details.php?dvd_title_id=<?php echo $row['dvd_title_id']?>"> <?php echo $row["title"] ?> </a></td>
 								<td> <?php echo $row["release_date"] ?></td>
 								<td> <?php echo $row["genre"] ?></td>
 								<td> <?php echo $row["rating"] ?></td>
@@ -154,5 +156,18 @@
 			</div> <!-- .col -->
 		</div> <!-- .row -->
 	</div> <!-- .container-fluid -->
+	<script>
+		let deleteButtons = document.querySelectorAll(".delete-btn");
+
+		for (let i = 0; i < deleteButtons.length; i++) {
+			deleteButtons[i].onclick = function() {
+				// return false is like event.preventDefault(), it prevents default behavior. In this
+				// case it prevents page to go to delete.php
+
+				// confirm() returns TRUE if user clicked 'ok'and FALSE if user clicked 'cancel'
+				return confirm("Are you sure you want to delete this DVD?");
+			}
+		}
+	</script>
 </body>
 </html>

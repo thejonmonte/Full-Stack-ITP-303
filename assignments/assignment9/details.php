@@ -1,3 +1,50 @@
+<?php
+	require "config/config";
+	if( !isset( $_GET["dvd_title_id"] ) || empty($_GET["dvd_title_id"]) ) {
+		// A track id is not given, show error message. Don't do anything else.
+		$error = "Invalid DVD Title ID";
+	}
+	else {
+		// A dvd title id is given so continue to connect to the DB.
+		// Connect to the DB
+		$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		if( $mysqli->connect_errno ) {
+			echo $mysqli->connect_error;
+			exit();
+		}
+		// Set the character set
+		$mysqli->set_charset('utf-8');
+		// Write the SQL statement
+		$sql = "SELECT dvd_titles.dvd_title_id, dvd_titles.title, dvd_titles.release_date, dvd_titles.award, labels.label, sounds.sound, genres.genre, ratings.rating, formats.format 
+			FROM dvd_titles
+			LEFT JOIN labels
+				ON dvd_titles.label_id = labels.label_id
+			LEFT JOIN sounds
+				ON dvd_titles.sound_id = sounds.sound_id
+			LEFT JOIN genres
+				ON dvd_titles.genre_id = genres.genre_id
+			LEFT JOIN ratings
+				ON dvd_titles.rating_id = ratings.rating_id
+			LEFT JOIN formats
+				ON dvd_titles.format_id = formats.format_id
+			WHERE dvd_titles.dvd_title_id =" . $_GET["dvd_title_id"]  . ";";
+		// Run the query on the DB
+		$results = $mysqli->query($sql);
+		if( !$results ) {
+			echo $mysqli->error;
+			exit();
+		}
+		// Since we only get 1 result (searching by primary key), we don't need a loop.
+		$row = $results->fetch_assoc();
+		// Close the connection
+		$mysqli->close();
+
+		if( $row['award'] == 'null') {
+			$row['award'] = '';
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,51 +73,59 @@
 		<div class="row mt-4">
 			<div class="col-12">
 
-				<div class="text-danger font-italic">Display Errors Here</div>
+				<?php if ( isset($error) && !empty($error) ) : ?>
 
-				<table class="table table-responsive">
+					<div class="text-danger">
+						<?php echo $error; ?>
+					</div>
 
-					<tr>
-						<th class="text-right">Title:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+				<?php else : ?>
 
-					<tr>
-						<th class="text-right">Release Date:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+					<table class="table table-responsive">
 
-					<tr>
-						<th class="text-right">Genre:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Title:</th>
+							<td><?php echo $row['title']; ?></td>
+						</tr>
 
-					<tr>
-						<th class="text-right">Label:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Release Date:</th>
+							<td><?php echo $row['release_date']; ?></td>
+						</tr>
 
-					<tr>
-						<th class="text-right">Rating:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Genre:</th>
+							<td><?php echo $row['genre']; ?></td>
+						</tr>
 
-					<tr>
-						<th class="text-right">Sound:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Label:</th>
+							<td><?php echo $row['label']; ?></td>
+						</tr>
 
-					<tr>
-						<th class="text-right">Format:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Rating:</th>
+							<td><?php echo $row['rating']; ?></td>
+						</tr>
 
-					<tr>
-						<th class="text-right">Award:</th>
-						<td><!-- PHP Output Here --></td>
-					</tr>
+						<tr>
+							<th class="text-right">Sound:</th>
+							<td><?php echo $row['sound']; ?></td>
+						</tr>
 
-				</table>
+						<tr>
+							<th class="text-right">Format:</th>
+							<td><?php echo $row['format']; ?></td>
+						</tr>
+
+						<tr>
+							<th class="text-right">Award:</th>
+							<td><?php echo $row['award']; ?></td>
+						</tr>
+
+					</table>
+
+				<?php endif; ?>
 
 
 			</div> <!-- .col -->
@@ -78,6 +133,7 @@
 		<div class="row mt-4 mb-4">
 			<div class="col-12">
 				<a href="search_results.php" role="button" class="btn btn-primary">Back to Search Results</a>
+				<a href="edit_form.php?dvd_title_id=<?php echo $row['dvd_title_id']?>" role="button" class="btn btn-warning">Edit This DVD</a>
 			</div> <!-- .col -->
 		</div> <!-- .row -->
 	</div> <!-- .container -->

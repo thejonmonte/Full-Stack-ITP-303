@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h1 class="col-12 mt-4 mb-4">DVD Databse</h1>
+			<h1 class="col-12 mt-4 mb-4">DVD Database</h1>
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 	<div class="container">

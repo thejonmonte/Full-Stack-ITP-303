@@ -1,3 +1,58 @@
+<?php
+	require "config/config";
+
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+	if( $mysqli->connect_errno ) {
+		echo $mysqli->connect_error;
+		exit();
+	}
+
+	// Set the character set
+	$mysqli->set_charset('utf-8');
+
+	// Genres:
+	$sql_genres = "SELECT * FROM genres;";
+	$results_genres = $mysqli->query($sql_genres);
+	if ( $results_genres == false ) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	// Ratings:
+	$sql_ratings = "SELECT * FROM ratings;";
+	$results_ratings = $mysqli->query($sql_ratings);
+	if ( $results_ratings == false ) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	// Labels:
+	$sql_labels = "SELECT * FROM labels;";
+	$results_labels = $mysqli->query($sql_labels);
+	if ( $results_labels == false ) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	// Formats:
+	$sql_formats = "SELECT * FROM formats;";
+	$results_formats = $mysqli->query($sql_formats);
+	if ( $results_formats == false ) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	// Sounds:
+	$sql_sounds = "SELECT * FROM sounds;";
+	$results_sounds = $mysqli->query($sql_sounds);
+	if ( $results_sounds == false ) {
+		echo $mysqli->error;
+		exit();
+	}
+
+	$mysqli->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +83,7 @@
 
 	<div class="container">
 
-		<form>
+		<form action="add_confirmation.php" method="POST">
 
 			<div class="form-group row">
 				<label for="title-id" class="col-sm-3 col-form-label text-sm-right">Title: <span class="text-danger">*</span></label>
@@ -51,6 +106,13 @@
 						<option value="" selected disabled>-- Select One --</option>
 
 						<!-- PHP Output Here -->
+						<?php while( $row = $results_labels->fetch_assoc() ): ?>
+
+							<option value="<?php echo $row['label_id']; ?>">
+								<?php echo $row['label']; ?>
+							</option>
+
+						<?php endwhile; ?>
 
 					</select>
 				</div>
@@ -63,6 +125,13 @@
 						<option value="" selected disabled>-- Select One --</option>
 
 						<!-- PHP Output Here -->
+						<?php while( $row = $results_sounds->fetch_assoc() ): ?>
+
+							<option value="<?php echo $row['sound_id']; ?>">
+								<?php echo $row['sound']; ?>
+							</option>
+
+						<?php endwhile; ?>
 
 					</select>
 				</div>
@@ -75,6 +144,13 @@
 						<option value="" selected disabled>-- Select One --</option>
 
 						<!-- PHP Output Here -->
+						<?php while( $row = $results_genres->fetch_assoc() ): ?>
+
+							<option value="<?php echo $row['genre_id']; ?>">
+								<?php echo $row['genre']; ?>
+							</option>
+
+						<?php endwhile; ?>
 
 					</select>
 				</div>
@@ -87,6 +163,13 @@
 						<option value="" selected disabled>-- Select One --</option>
 
 						<!-- PHP Output Here -->
+						<?php while( $row = $results_ratings->fetch_assoc() ): ?>
+
+							<option value="<?php echo $row['rating_id']; ?>">
+								<?php echo $row['rating']; ?>
+							</option>
+
+						<?php endwhile; ?>
 
 					</select>
 				</div>
@@ -99,6 +182,13 @@
 						<option value="" selected disabled>-- Select One --</option>
 
 						<!-- PHP Output Here -->
+						<?php while( $row = $results_formats->fetch_assoc() ): ?>
+
+							<option value="<?php echo $row['format_id']; ?>">
+								<?php echo $row['format']; ?>
+							</option>
+
+						<?php endwhile; ?>
 
 					</select>
 				</div>
