@@ -42,7 +42,6 @@
 						client_id: '139604446031-7m29f56l6htu0a2rbkn265jujji656ug.apps.googleusercontent.com',
 						cookiepolicy: 'single_host_origin'
 					});
-					console.log("Hi!");
 					attachSignin(document.querySelector("#sign-in"));
 				});
 			}
