@@ -186,7 +186,7 @@ require './config/config.php';
 			$results = $mysqli->query($sql);
 
 			if ($results->num_rows == 0) {
-				echo "No results";
+				echo "ERROR";
 				exit();
 			} else {
 				$results_array = [];
