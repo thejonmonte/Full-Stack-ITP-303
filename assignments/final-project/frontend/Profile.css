@@ -1,0 +1,126 @@
+.title {
+	text-align: center;
+	margin-top: 0.5%;
+	margin-bottom: 2%;
+}
+
+.rounded {
+	margin-top: 2%;
+	border-radius: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#error {
+	text-align: center;
+}
+
+.checked {
+	color: orange;
+}
+
+.resize-image {
+	border-radius: 50%;
+	width: 20%;
+}
+
+.btn.btn-outline-light {
+	border: 2px solid black;
+	color: black;
+	margin-bottom: 3%;
+}
+
+.btn.btn-outline-light:hover {
+	background-color: #ffefe2 !important;
+	text-decoration: none;
+}
+
+.btn.btn-outline-light:active {
+	border-style: outset;
+	text-decoration: none;
+	border: 2px solid black;
+}
+
+.btn.btn-outline-light.active.focus, .btn.btn-outline-light.active:focus,
+.btn.btn-outline-light.focus, .btn.btn-outline-light:active.focus, 
+.btn.btn-outline-light:active:focus, .btn.btn-outline-light:focus {
+  outline: none;
+  box-shadow: none;
+  border: 2px solid black;
+}
+
+.workout {
+	width: 25%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid black;
+	border-radius: 1%;
+}
+
+.item-title {
+	width: 100%;
+}
+
+.workout {
+	width: 50%;
+	word-wrap: break-word;
+}
+
+.edit-btn {
+	color: white;
+	background-color: #ffbf76;
+	margin-right: 2%;
+}
+
+.edit-btn:hover {
+	color: white;
+	opacity: 0.8;
+}
+
+.close-btn {
+	color: white;
+	background-color: #ff6546;
+}
+
+.close-btn:hover {
+	color: white;
+	opacity: 0.8;
+}
+
+.btn-warning {
+	color: white;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2%;
+}
+
+.text-success {
+	color: green;
+}
+
+.text-fail {
+	color: red;
+}
+
+.response {
+	text-align: center;
+}
+
+#review-text {
+	width: 100%;
+}
+
+@media(max-width: 767px) {
+	.workout {
+		width: 90%;
+	}
+}
+
+@media(max-width: 991px) {
+	.workout {
+		width: 70%;
+	}
+}

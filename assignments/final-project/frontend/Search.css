@@ -1,0 +1,88 @@
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.categories {
+	font-size: 3vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.dropdown-toggle {
+	color: black;
+}
+
+.search-category {
+	cursor: pointer;
+}
+
+#register-container {
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#register-logo img {
+    width: 15%;
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: left;
+    margin-top: 25px;
+    width: 100%;
+}
+
+#button-container {
+    width: 100%;
+}
+
+table {
+    margin: 0 auto;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked{
+    display: none;
+}
+
+.pics img {
+    width: 100%;
+}
+
+.card-title {
+	color: black;
+    word-wrap: break-word;
+}
+
+.option {
+	background-color: transparent;
+	border: 1px solid black;
+    width: 100%;
+}
+
+.option.active {
+	background-color: white;
+}
+
+.search-btn {
+    background-color: #ffd3ae;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-bottom: 4%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

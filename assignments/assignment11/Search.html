@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<title>Search Page</title>
+		
+		<link href="Search.css" rel="stylesheet">
+
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+		<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="jquery.rateyo.min.css"> -->
+		<script>
+			var active = "body-part";
+
+			// window.onload = function() {
+			// 	document.querySelector("#nav-home").classList.add("nav-color");
+			// 	document.querySelector("#nav-search").classList.add("nav-active");
+			// }
+
+			function change(id) {
+				if (active != id) {
+					document.querySelector("#" + active).classList.remove("active");
+					document.querySelector("#" + id).classList.add("active");
+					active = id;
+					document.querySelector("#dropdownMenuLink").innerHTML = document.querySelector("#" + id).innerHTML;
+				}
+			}
+
+			var my_func = function(event) {
+			    alert("me and all my relatives are owned by China");
+			    event.preventDefault();
+			};
+
+			// your form
+			// var form = document.getElementById("Search");
+
+			// // attach event listener
+			// form.addEventListener("submit", my_func, true);
+
+			// 			function submit(e) {
+			// 				e.preventDefault();
+			// 				alert("Hi!");
+			// 				alert(document.Search.body-part);
+			// 			}
+
+			// document.getElementById("submit").addEventListener("submit", function(event){
+			// 	alert("HEYYY!");
+			//   event.preventDefault()
+			// });
+
+		</script>  
+	</head>
+
+	<body style="background-color: #ffefe2">
+		<img src="images/anterior-deltoid.png" />
+		<img src="images/brachialis.png" />
+		 <div class="dropdown show categories">
+		 	<span>Search By </span>
+		  <a class="dropdown-toggle search-category" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Body Part
+		  </a>
+
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		    <a class="dropdown-item search-category active" id="body-part" onclick="change(id)">Body Part</a>
+		    <a class="dropdown-item search-category" id="equipment" onclick="change(id)">Equipment</a>
+		    <a class="dropdown-item search-category" id="muscle" onclick="change(id)">Muscle</a>
+		  </div>
+		</div>
+
+		<div class="options">
+			<div class="header">
+            <!-- <label for="display-name">Display Name:</label> <input id="display-name" type="text" name="userName"><br/><br/> -->
+                    	<div class="container">
+                    		<form id="Search" name="Search" method="GET">
+						  <div class="row">
+						    <div class="col">
+						      <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="radio" name="body-part" value="10">
+								  <img class="card-img-top body-img" src="images/abs.png" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Abs</h5>
+								  </div>
+                            	</label>
+						    </div>
+						    <div class="col">
+						      <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="radio" name="body-part" value="images/icontexto_emoticons_01.png">
+								  <img class="card-img-top body-img" src="images/arms.png" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Arms</h5>
+								  </div>
+                            	</label>
+						    </div>
+						    <div class="col">
+						      <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_01.png">
+								  <img class="card-img-top" src="images/back.jpg" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Back</h5>
+								  </div>
+                            	</label>
+						    </div>
+						    <div class="col">
+						      <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="radio" name="body-part" value="images/icontexto_emoticons_01.png">
+								  <img class="card-img-top" src="images/calf.png" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title inp-color">Abs</h5>
+								  </div>
+                            	</label>
+						    </div>
+						    <div class="col">
+						      <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="radio" name="body-part" value="images/icontexto_emoticons_01.png">
+								  <img class="card-img-top" src="images/abs.png" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Abs</h5>
+								  </div>
+                            	</label>
+						    </div>
+						  </div>
+						  <div class="row">
+						    <div class="col-offset-2">
+						      <label class="pics btn btn-outline-light option">
+                                <input type="radio" name="body-part" value="9">
+								  <img class="card-img-top" src="images/legs.jpg" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Legs</h5>
+								  </div>
+                            	</label>
+						    </div>
+						    <div class="col-offset-3">
+						      <label class="pics btn btn-outline-light option">
+                                <input type="radio" name="body-part" value="13">
+								  <img class="card-img-top" src="images/shoulders.jpg" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Shoulders</h5>
+								  </div>
+                            	</label>
+						    </div>
+						  <input id="submit" type="submit" name="submit" value="Submit">
+						  </form>
+						</div>
+
+						  <div class="custom-pagination">
+						  	<button type="button" class="btn btn-light pagination-btn">Previous</button>
+						  	<button type="button" class="btn btn-light pagination-btn">Next</button>
+						  </div>
+                        <!-- <td> -->
+                            <!-- <label class="profilePics btn btn-outline-light" id="pic1">
+                                <input type="" name="">ut type="radio" name="userPic" value="images/icontexto_emoticons_01.png">
+                                <div class="card" style="width: 18rem;">
+								  <img class="card-img-top" src="images/abs.png" alt="Card image cap">
+								  <div class="card-body">
+								    <h5 class="card-title">Abs</h5>
+								  </div>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic2">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_03.png">
+                                <img src="images/icontexto_emoticons_03.png">
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic3">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_04.png">
+                                <img src="images/icontexto_emoticons_04.png">
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic4">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_06.png">
+                                <img src="images/icontexto_emoticons_06.png">
+                            </label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic5">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_07.png">
+                                <img src="images/icontexto_emoticons_07.png">
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic6">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_10.png">
+                                <img src="images/icontexto_emoticons_10.png">
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic7">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_13.png">
+                                <img src="images/icontexto_emoticons_13.png">
+                            </label>
+                        </td>
+                        <td>
+                            <label class="profilePics btn btn-outline-light" id="pic8">
+                                <input type="radio" name="userPic" value="images/icontexto_emoticons_14.png">
+                                <img src="images/icontexto_emoticons_14.png">
+                            </label>
+                        </td>
+
+                    </tr>
+
+
+                </table> -->
+				<!-- <div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="images/abs.png" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Abs</h5>
+				  </div>
+				</div>
+				<div id="10">Abs</div>
+				<div id="8">Arms</div>
+				<div id="12">Back</div>
+				<div id="14">Calves</div>
+				<div id="11">Chest</div>
+				<div id="9">Legs</div>
+				<div id="13">Shoulders</div>
+			</div> -->
+
+			<!-- <div id="1">Barbell</div>
+			<div id="8">Bench</div>
+			<div id="3">Dumbbell</div>
+			<div id="4">Gym Mat</div>
+			<div id="9">Incline Bench</div>
+			<div id="10">Kettlebell</div>
+			<div id="7">none (bodyweight exercise)</div>
+			<div id="6">Pull-up bar</div>
+			<div id="5">Swiss Ball</div>
+			<div id="2">SZ-Bar</div>
+
+			<div id="2">Anterior deltoid</div>
+			<div id="1">Biceps brachii</div>
+			<div id="11">Biceps femoris</div>
+			<div id="13">Brachialis</div>
+			<div id="7">Gastrocnemius</div>
+			<div id="8">Gluteus Maximus</div>
+			<div id="12">Latissiumus Dorsi</div>
+			<div id="14">Obliquus Externus Abdominis</div>
+			<div id="4">Pectoralis Major</div>
+			<div id="10">Quadriceps Femoris</div>
+			<div id="6">Rectus Abdominis</div>
+			<div id="3">Serratus Anterior</div>
+			<div id="15">Soleus</div>
+			<div id="9">Trapezius</div>
+			<div id="5">Triceps Brachii</div> -->
+		</div> 
+		<!-- <div id="name"></div>
+		<div id="email"></div>
+		<div id="google-image"></div> -->
+
+		<script type="text/javascript" src="jquery.min.js"></script> 
+		<script type="text/javascript" src="jquery.rateyo.min.js"></script> 
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	</body>
+</html>

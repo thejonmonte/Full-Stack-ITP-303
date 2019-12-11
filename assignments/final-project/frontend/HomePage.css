@@ -17,10 +17,14 @@
 	width: 100%;
 }
 
+.checked {
+	color: orange;
+}
+
 .desc {
 	margin: 3% 1%;
 	width: 48%;
-	font-size: 2vw;
+	font-size: 1.5vw;
 }
 
 .reviews {
@@ -50,9 +54,16 @@
   color: #f8ce0b;
 }
 
-.review-img {
+.review-img-hardcode {
 	border-radius: 50%;
 	width: 20%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.review-img {
+	border-radius: 50%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -85,6 +96,10 @@ a.nostyle:visited {
 }
 
 .review-text {
+	text-align: center;
+}
+
+.rating-header {
 	text-align: center;
 }
 
@@ -126,11 +141,3 @@ a.nostyle:visited {
 		margin-right: auto;
 
 	}
-}
-
-@media (max-width: 991px) {
-	.top-bg-image {
-		width: 30%;
-	}
-
-}

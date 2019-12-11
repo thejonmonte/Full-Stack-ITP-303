@@ -1,0 +1,37 @@
+.pagination-btn {
+    background-color: #ffd3ae;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 4%;
+}
+
+.custom-pagination {
+	text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title {
+	color: black;
+	word-wrap: break-word;
+}
+
+.card-text {
+	color: black;
+	text-align: left;
+}
+
+.resize-image {
+	width: 18%;
+	border-radius: 50%;
+}
+
+#results-num {
+	text-align: center;
+}
+
+.click {
+	cursor: pointer;
+	border: 2px solid black;
+}

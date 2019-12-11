@@ -1,0 +1,64 @@
+@font-face {
+	font-family: "Banshee";
+	src:url("fonts/Banshee.ttf");
+}
+
+@font-face {
+	font-family: "Granite";
+	src:url("fonts/Granite.ttf");
+}
+
+.nav-link.nav-item {
+	color: white;
+}
+
+.nav-background {
+	background-color: #ff6546;
+}
+
+body {
+	background-color: #ffefe2;
+}
+
+.pos-right {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.nav-title {
+	color: white;
+}
+
+.nav-active {
+	color: white;
+}
+
+.nav-color {
+	color: #ffd6db;
+}
+
+.profile {
+	left: 100%;
+}
+
+/*.jumbotron {
+	background-image: url("images/pushup.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 5%;
+	background-position: 0% 0%;
+}*/
+
+.top {
+	display: flex;
+	justify-content: space-between
+}
+
+.top-bg-image {
+	width: 20%;
+}
+
+.nav-color:hover {
+	color: white;
+}

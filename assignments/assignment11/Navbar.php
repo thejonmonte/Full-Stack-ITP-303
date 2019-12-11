@@ -9,17 +9,56 @@
 		<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    	<title>Home Page</title>
-		
+    	
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="HomePage.css" rel="stylesheet">
+		<link href="Navbar.css" rel="stylesheet">
 		<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+
+		<script>
+			var googleUser = {};
+
+			var startApp = function() {
+				gapi.load('auth2', function() {
+					// Ready. Make a call to gapi.auth2.init or some other API 
+					auth2 = gapi.auth2.init({
+						client_id: '139604446031-7m29f56l6htu0a2rbkn265jujji656ug.apps.googleusercontent.com',
+						cookiepolicy: 'single_host_origin'
+					});
+					console.log("Hi!");
+					attachSignin(document.querySelector("#sign-in"));
+				});
+			}
+
+			function attachSignin(element) {
+			    console.log(element.id);
+			    auth2.attachClickHandler(element, {},
+			        function(googleUser) {
+			        	let name = googleUser.getBasicProfile().getName();
+			        	if (name.indexOf(' ') != -1) {
+			        		name = name.substr(0, name.indexOf(' '));
+			        	}
+			          document.getElementById('name').innerText = "Signed in: " +
+			              name;
+			          document.getElementById('email').innerText = "Email: " +
+			              googleUser.getBasicProfile().getEmail();
+			          let image = document.createElement('img');
+			          image.src = googleUser.getBasicProfile().getImageUrl();
+			          image.style.borderRadius = "50%";
+			          alert("Image src is " + image.src);
+			          document.querySelector("#google-image").appendChild(image);
+			        }, function(error) {
+			        	if (!error.error.includes("popup_closed_by_user")) {
+			          		alert(error.error);
+			      		}
+			        });
+			}
+		</script>
 
 	</head>
 
 	<body>
 		<div class="top">
-			<img class="top-bg-image" src="images/plank.jpg" />
+			<img class="top-bg-image" src="images/plank.png" />
 			<img class="top-bg-image" src="images/pushup.png" />
 			<img class="top-bg-image" src="images/crunch.png" />
 		</div>
@@ -29,9 +68,9 @@
   			</button>
   			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     			<div class="navbar-nav">
-    			  <a class="navbar-brand mb-0 h1" href="#"><span class="nav-title">To the Limit!</span></a>
-			      <a class="nav-item nav-link" href="#"><span class="nav-active">Home</span></a>
-			      <a class="nav-item nav-link"><span class="nav-color">Search</span></a>
+    			  <a class="navbar-brand mb-0 h1" href="HomePage.php"><span class="nav-title">To the Limit!</span></a>
+			      <a class="nav-item nav-link" href="HomePage.php"><span id="nav-home">Home</span></a>
+			      <a class="nav-item nav-link" href="Search.php"><span id="nav-search">Search</span></a>
     			</div>
   			</div>
   			<div class="collapse navbar-collapse pos-right" id="navbarNavAltMarkup">
@@ -40,48 +79,15 @@
     			</div>
     		</div>
 		</nav>
-		<div class="title">To the Limit!</div>
 
-		<div class="quote">You are... great</div>
-
-		<div class="info">
-			<div class="desc">
-				<i>Unbounded Limits!</i> is your best friend for all things workout-related. Plan out your workout days with state-of-the-art exercises that fit YOUR needs. Don't know where to start? We've got you covered! <i>Unbounded Limits!</i> is here to help those of any experience level: from beginner to expert. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adip
-			</div>
-
-			<div class="reviews">
-				<div class="review">
-					<img class="review-img" src="images/default-img.jpg">
-					<div class="review-text"><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </i></div>
-					<div class="review-text">- John Smith</div>
-					<div>
-						<div id="rating1"></div>
-					</div>
-				</div>
-
-				<div class="review">
-					<img class="review-img" src="images/default-img.jpg">
-					<div class="review-text"><i>My life has taken a 180 after this website. My body’s slimmed down and my wife has come back to me!</i></div>
-					<div class="review-text">- John Smith</div>
-				</div>
-			</div>
-		</div>
-
-		<a href="Search.html" class="nostyle ready">
-			Ready to get started?
-		</div>
-
-		<script type="text/javascript" src="jquery.min.js"></script> 
+		<!-- <script type="text/javascript" src="jquery.min.js"></script> 
 		<script type="text/javascript" src="jquery.rateyo.min.js"></script> 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 
 		<script>
 			startApp();
-			  $("#rating1").rateYo({
-			    rating: 3.6
-			  })
 		</script>
 		
 	</body>
