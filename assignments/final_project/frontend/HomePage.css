@@ -100,6 +100,9 @@ a.nostyle:visited {
 }
 
 .rating-header {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }
 
@@ -122,12 +125,12 @@ a.nostyle:visited {
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
-		font-size: 3vw;
+		font-size: 5vw;
 	}
 
 	.title {
 		font-size: 18vw;
-		margin-bottom: 10%;
+		margin-bottom: 5%;
 	}
 
 	.quote {
@@ -141,3 +144,10 @@ a.nostyle:visited {
 		margin-right: auto;
 
 	}
+}
+
+@media (max-width: 991px) {
+	.desc {
+		font-size: 2.5vw;
+	}
+}

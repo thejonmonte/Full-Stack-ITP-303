@@ -59,12 +59,12 @@
 
 		<div class="info">
 			<div class="desc">
-				<i>To the Limit!</i> is your best friend for all things workout-related. Plan out your workout days with state-of-the-art exercises that fit YOUR needs. <br /><br />Don't know where to start? We've got you covered! <i>To the Limit!</i> is here to help those of any experience level: from beginner to expert. <br /><br />Filter your searches through a wide range of choices: either through the primary body part, equipment used, or muscles trained!
+				<i>To the Limit!</i> is your best friend for all things workout-related. Plan out your workout with state-of-the-art exercises that fit YOUR needs. <br /><br />Don't know where to start? We've got you covered! <i>To the Limit!</i> is here to help those of any experience level: from beginner to expert. <br /><br />Filter your searches through a wide range of choices: either through the primary body part, equipment used, or muscles trained!
 			</div>
 
 
 			<div id="reviews" class="reviews">
-				<div class="review">
+				<div class="review" style="display:none">
 					<img class="review-img-hardcode" src="images/default-img.jpg">
 					<div class="review-text"><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </i></div>
 					<div class="review-text">- John Smith</div>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 
-				<div class="review">
+				<div class="review" style="display:none">
 					<img class="review-img-hardcode" src="images/default-img.jpg">
 					<div class="review-text"><i>My life has taken a 180 after this website. My body’s slimmed down and my wife has come back to me!</i></div>
 					<div class="review-text">- John Smith</div>
